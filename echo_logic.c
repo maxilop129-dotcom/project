@@ -32,16 +32,17 @@ struct Message *last_message(struct Message history[], int count) {
 // ---- PART 3: the emoji table ----
 
 char *find_emoji(char *word) {
-    // TODO: Look through the EMOJIS table (below) for the entry whose code
-    //       matches word, and return that entry's emoji.
-    //   - EMOJIS is an array of NUM_EMOJIS structs, one per shortcode, and
-    //     you may need to check every one. How do you reach one member of
-    //     the struct at index i?
-    //   - What should you return if no entry matches? (echo.h says.)
-    //
-    //   Note: to compare two strings, use strcmp(a, b). It returns 0 when
-    //   a and b hold the same text. (== would compare their addresses.)
-    (void)word;   // delete this line when you start
+    int i;
+
+   
+    for (i = 0; i < NUM_EMOJIS; i++) {
+    
+        if (strcmp(word, EMOJIS[i].code) == 0) {
+            return EMOJIS[i].emoji;  
+        }
+    }
+
+    
     return NULL;
 }
 
