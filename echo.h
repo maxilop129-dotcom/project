@@ -28,7 +28,10 @@
 //   fd   : an int                       (a number for their connection)
 // ---------------------------------------------------------------------
 
-
+struct User {
+    char name[NAME_LEN];
+    int fd;
+};
 
 // ---------------------------------------------------------------------
 // TODO (Part 1b): define struct Message: one message.
@@ -39,7 +42,10 @@
 //   text   : an array of TEXT_LEN chars  (what they typed)
 // ---------------------------------------------------------------------
 
-
+struct Message {
+    char sender[NAME_LEN];
+    char text[TEXT_LEN];
+};
 
 // Emoji shortcodes the server understands. The table is in echo_logic.c.
 struct Emoji {
