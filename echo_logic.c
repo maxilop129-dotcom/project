@@ -22,16 +22,12 @@ int add_to_history(struct Message history[], int *count,
 }
     
 struct Message *last_message(struct Message history[], int count) {
-    // TODO: Return a pointer to the most recently saved message.
-    //   - Which index holds the most recent message? Messages are saved in
-    //     order, so the most recent one is the last one saved.
-    //   - This function returns an ADDRESS, not a message. How do you get
-    //     the address of an array element?
-    //   - What should you return if nothing has been saved yet? What is
-    //     count in that case?
-    (void)history; (void)count;   // delete this line when you start
-    return NULL;
+    if (count == 0) {
+        return NULL;              // nothing saved yet
+    }
+    return &history[count - 1];   // address of the most recent message
 }
+
 
 // ---- PART 3: the emoji table ----
 
