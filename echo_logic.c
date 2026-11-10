@@ -13,22 +13,14 @@
 
 int add_to_history(struct Message history[], int *count,
                    struct Message *msg) {
-    // TODO: Save a copy of the message that msg points to in the next free
-    //       slot of history, and update the count. (See echo.h for what
-    //       to return.)
-    //   - What should happen if history is already full? History is full
-    //     when it already holds MAX_HISTORY messages, so every slot of the
-    //     array is in use. Then don't save the message, leave the count
-    //     alone, and return -1. (This function returns an int, so -1 means
-    //     "it didn't work.")
-    //   - Which index is the next free slot? The saved messages fill the
-    //     array from index 0 with no gaps, so the first unused slot comes
-    //     right after them. Remember that count is a pointer, not a number.
-    //   - msg holds an ADDRESS. How do you get the message stored there?
-    (void)history; (void)count; (void)msg;   // delete this line when you start
-    return -1;
+    if (*count >= MAX_HISTORY) {
+        return -1;             
+    }
+    history[*count] = *msg;    
+    (*count)++;                 
+    return 0;
 }
-
+    
 struct Message *last_message(struct Message history[], int count) {
     // TODO: Return a pointer to the most recently saved message.
     //   - Which index holds the most recent message? Messages are saved in
